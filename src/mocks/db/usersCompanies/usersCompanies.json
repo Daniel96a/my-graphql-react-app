@@ -1,0 +1,19 @@
+[
+    {
+        "ssn": 199604221234,
+        "companies": [
+            {
+                "id": "WQ32543",
+                "name": "Välfärdsälgen AB"
+            },
+            {
+                "id": "QZ54321",
+                "name": "Nordens snickare AB"
+            }
+        ]
+    },
+    {
+        "ssn": 196101244321,
+        "companies": []
+    }
+]

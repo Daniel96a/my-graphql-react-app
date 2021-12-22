@@ -1,15 +1,32 @@
-import React from 'react';
+import React from "react";
+import ReactDOM from "react-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { BrowserRouter as Router } from "react-router-dom";
+import { ThemeProvider } from "theme-ui";
 
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import App from "./App";
+import GlobalStyles from "./GlobalStyles";
+import mswInit from "./msw-initializer";
+import reportWebVitals from "./reportWebVitals";
+import { theme } from "./theme";
+
+const queryClient = new QueryClient();
+mswInit();
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <QueryClientProvider client={queryClient}>
+      <Router>
+        <ThemeProvider theme={theme}>
+          <GlobalStyles />
+          <App />
+        </ThemeProvider>
+      </Router>
+      <ReactQueryDevtools />
+    </QueryClientProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+  document.getElementById("root"),
 );
 
 // If you want to start measuring performance in your app, pass a function
