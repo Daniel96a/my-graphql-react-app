@@ -27,6 +27,9 @@ export const SiteTabBar = (): JSX.Element => {
       paddingX={1}
       sx={{
         gridTemplateColumns: "1fr 1fr 1fr",
+        borderTopLeftRadius: 12,
+        borderTopRightRadius: 12,
+
         gap: 0,
         width: "100%",
         boxShadow: "2px 0 4px 2px rgba(0,0,0,.2)",

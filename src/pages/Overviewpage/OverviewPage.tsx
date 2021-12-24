@@ -1,6 +1,6 @@
 import { Box, Heading } from "theme-ui";
 
-import RouterLink from "../../components/RouterLink";
+import PageLayout from "../../components/PageLayout";
 import logo from "../../logo.svg";
 import { useUser } from "../../services/user-service";
 
@@ -8,8 +8,7 @@ const OverviewPage = () => {
   const { data: user, isLoading } = useUser(199604221234);
 
   return (
-    <Box>
-      <RouterLink to={"/test"}>Go to another page</RouterLink>
+    <PageLayout>
       {isLoading ? (
         <>
           <img src={logo} className="App-logo" alt="logo" />
@@ -22,7 +21,7 @@ const OverviewPage = () => {
           </Heading>
         </Box>
       )}
-    </Box>
+    </PageLayout>
   );
 };
 

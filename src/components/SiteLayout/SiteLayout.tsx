@@ -10,18 +10,9 @@ const SiteLayout: React.FunctionComponent<ISiteLayout> = ({ children }) => {
   return (
     <Grid
       sx={{
-        gridTemplateAreas: [
-          `
-        "header"
-        "content"
-        "footer"`,
-          null,
-          `"header"
-        "content"`,
-        ],
         backgroundColor: "white",
         gap: 0,
-        gridTemplateRows: ["3rem auto 3rem", "4rem auto 0", "5rem auto 0"],
+        gridTemplateRows: ["3rem auto 3rem", "4rem auto 0"],
         height: "100%",
       }}
     >

@@ -12,6 +12,7 @@ export default function GlobalStyles() {
         }
         html {
           height: 100%;
+          overflow: hidden;
         }
         body {
           height: 100%;

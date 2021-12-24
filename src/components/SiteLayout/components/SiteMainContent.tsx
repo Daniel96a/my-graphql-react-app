@@ -3,8 +3,9 @@ import { Box, Container } from "theme-ui";
 export const SiteMainContent: React.FunctionComponent = ({ children }) => {
   return (
     <Box
-      sx={{
+      style={{
         overflow: "auto",
+        position: "relative",
       }}
     >
       <Container

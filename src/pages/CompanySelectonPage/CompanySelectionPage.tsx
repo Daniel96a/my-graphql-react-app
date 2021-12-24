@@ -1,7 +1,7 @@
-import { Box } from "theme-ui";
+import PageLayout from "../../components/PageLayout";
 
 const CompanySelectionPage = () => {
-  return <Box>SelectCompany</Box>;
+  return <PageLayout>SelectCompany</PageLayout>;
 };
 
 export default CompanySelectionPage;

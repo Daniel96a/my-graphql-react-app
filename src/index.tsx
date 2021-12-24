@@ -23,7 +23,13 @@ ReactDOM.render(
           <App />
         </ThemeProvider>
       </Router>
-      <ReactQueryDevtools />
+      <ReactQueryDevtools
+        toggleButtonProps={{
+          style: {
+            bottom: 50,
+          },
+        }}
+      />
     </QueryClientProvider>
   </React.StrictMode>,
   document.getElementById("root"),
