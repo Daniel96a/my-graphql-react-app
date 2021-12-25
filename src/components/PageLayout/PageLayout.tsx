@@ -14,7 +14,6 @@ const PageLayout = React.forwardRef<HTMLDivElement, IPageLayout>(
         exit={{
           opacity: 0,
         }}
-        style={{ overflow: "hidden" }}
       >
         {children}
       </motion.div>

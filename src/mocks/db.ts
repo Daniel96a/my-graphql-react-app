@@ -1,4 +1,4 @@
-import { factory, manyOf, primaryKey } from "@mswjs/data";
+import { factory, primaryKey } from "@mswjs/data";
 
 import populateCompanies from "./db/companies";
 import populateUsers from "./db/users";
@@ -6,10 +6,10 @@ import populateUsersCompanies from "./db/usersCompanies";
 
 export const db = factory({
   user: {
-    ssn: primaryKey(Number),
-    firstName: String,
-    lastName: String,
-    companies: manyOf("userCompanies"),
+    id: primaryKey(Number),
+    ssn: String,
+    firstname: String,
+    lastname: String,
   },
   company: {
     id: primaryKey(String),

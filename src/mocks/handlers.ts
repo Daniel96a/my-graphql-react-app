@@ -3,13 +3,14 @@ import { graphql } from "msw";
 import { db } from "./db";
 
 export interface GetUserQuery {
-  user: TUser;
+  userBySsn: TUser;
 }
 
 export type TUser = {
-  ssn: number;
-  firstName: string;
-  lastName: string;
+  id: number;
+  ssn: string;
+  firstname: string;
+  lastname: string;
 };
 
 export interface GetAllUsersQuery {
@@ -22,29 +23,29 @@ interface GetUserQueryVariables {
 
 export const handlers = [
   graphql.query<GetAllUsersQuery, GetUserQueryVariables>(
-    "GetAllUsers",
+    "users",
     (_req, res, ctx) => {
       const users = db.user.getAll();
-      return res(ctx.data({ users: users }));
+      return res(ctx.data({ users }));
     },
   ),
   graphql.query<GetUserQuery, GetUserQueryVariables>(
-    "GetUser",
+    "userBySsn",
     (req, res, ctx) => {
       const { ssn } = req.variables;
-
       const user = db.user.findFirst({
         where: {
           ssn: {
-            equals: parseInt(ssn),
+            equals: ssn
           },
         },
       });
+      console.log(user);
 
       if (user) {
         return res(
           ctx.data({
-            user: user,
+            userBySsn: user,
           }),
         );
       } else {

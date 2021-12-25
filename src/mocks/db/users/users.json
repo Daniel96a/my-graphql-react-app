@@ -1,14 +1,14 @@
 [
     {
-        "id": 199604221234,
-        "ssn": 199604221234,
-        "firstName": "Daniel",
-        "lastName": "Allbrand"
+        "id": 1,
+        "ssn": "199604225643",
+        "firstname": "John",
+        "lastname": "Doe"
     },
     {
-        "id": 196101244321,
-        "ssn": 196101244321,
-        "firstName": "Sten",
-        "lastName": "Allbrand"
+        "id": 2,
+        "ssn": "196101244321",
+        "firstname": "Alexa",
+        "lastname": "Jones"
     }
 ]

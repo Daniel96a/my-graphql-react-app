@@ -4,15 +4,33 @@ export default function GlobalStyles() {
   return (
     <Global
       styles={css`
-        * {
-          box-sizing: border-box;
+        ::-webkit-scrollbar {
         }
+        ::-webkit-scrollbar-track {
+          background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+          background: #888;
+          border-radius: 6px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
+
         #root {
           height: 100%;
+          display: flex;
         }
         html {
           height: 100%;
-          overflow: hidden;
+          overflow-y: scroll;
+          overscroll-behavior-y: none;
+        }
+        button {
+          border: none;
+          padding: 0;
+          cursor: pointer;
+          width: 100%;
         }
         body {
           height: 100%;
