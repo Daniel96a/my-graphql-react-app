@@ -3,20 +3,22 @@ import { useQuery } from "react-query";
 
 import { TUser } from "../mocks/handlers";
 
-const GET_USER_QUERY = gql`
-  query GetUser {
-    user(ssn: $ssn) {
-      firstName
-      lastName
+const GET_USER_QUERY = (ssn: string) => gql`
+  query userBySsn {
+    userBySsn(ssn: "${ssn}") {
+      id
+      firstname
+      lastname
       ssn
-      companies
     }
   }
 `;
 
-export const useUser = (ssn: number) => {
-  return useQuery<TUser>("user", async () => {
-    const { user } = await request("/", GET_USER_QUERY, { ssn: ssn });
-    return user;
+export const useUser = (ssn: string) => {
+  return useQuery<TUser>("userBySsn", async () => {
+    const { userBySsn } = await request("/graphql", GET_USER_QUERY(ssn), {
+      ssn: ssn,
+    });
+    return userBySsn;
   });
 };

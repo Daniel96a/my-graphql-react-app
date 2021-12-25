@@ -5,7 +5,7 @@ import logo from "../../logo.svg";
 import { useUser } from "../../services/user-service";
 
 const OverviewPage = () => {
-  const { data: user, isLoading } = useUser(199604221234);
+  const { data: user, isLoading } = useUser("199604225643");
 
   return (
     <PageLayout>
@@ -17,7 +17,7 @@ const OverviewPage = () => {
       ) : (
         <Box>
           <Heading variant="h1">
-            Name: {user?.firstName} {user?.lastName}
+            Name: {user?.firstname} {user?.lastname}
           </Heading>
         </Box>
       )}
