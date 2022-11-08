@@ -5,8 +5,9 @@ const TODOS_QUERY = gql`
   {
     todos {
       id
-      title
+      summary
       category
+      description
       createdAt
       updatedAt
     }

@@ -1,1 +1,1 @@
-export { default } from "./SiteLayout";
+export * from "./AppLayout";

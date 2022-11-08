@@ -1,9 +1,11 @@
-import { motion } from "framer-motion";
-import React from "react";
+import { motion, MotionProps } from "framer-motion";
+import React, { ReactNode } from "react";
 
-interface IPageLayout {}
+interface IPageLayout extends MotionProps {
+  children?: ReactNode;
+}
 
-const PageLayout = React.forwardRef<HTMLDivElement, IPageLayout>(
+export const PageLayout = React.forwardRef<HTMLDivElement, IPageLayout>(
   ({ children }, ref) => {
     return (
       <motion.div
@@ -22,5 +24,3 @@ const PageLayout = React.forwardRef<HTMLDivElement, IPageLayout>(
 );
 
 PageLayout.displayName = "PageLayout";
-
-export default PageLayout;

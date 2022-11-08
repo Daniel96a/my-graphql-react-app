@@ -1,6 +1,6 @@
 import { Heading } from "theme-ui";
 
-import PageLayout from "../../components/PageLayout";
+import { PageLayout } from "../../components";
 
 const PathNotFoundPage = () => {
   return (

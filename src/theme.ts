@@ -43,7 +43,7 @@ declare module "theme-ui" {
 
 export const theme: Theme = {
   config: {
-    initialColorModeName: "light",
+    // initialColorModeName: "light",
     printColorModeName: "light",
     useColorSchemeMediaQuery: "system",
     useBorderBox: true,
@@ -73,7 +73,7 @@ export const theme: Theme = {
     muted: colorScales.purpleScale[1],
     modes: {
       light: {
-        text: "#0A0A0B",
+        text: "primary",
         background: "#FFFFFF",
         accent: colorScales.grayScale[3],
         highlight: colorScales.purpleScale[2],
@@ -103,6 +103,13 @@ export const theme: Theme = {
       ":focus": {
         backgroundColor: "highlight",
         outlineColor: "highlight",
+      },
+    },
+  },
+  forms: {
+    input: {
+      ":-webkit-autofill": {
+        WebkitTextFillColor: ({ colors }) => `${colors?.primary}`,
       },
     },
   },

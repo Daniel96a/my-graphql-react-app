@@ -1,7 +1,8 @@
 interface ITodo {
-  id: string;
-  title: string;
+  id: number;
+  summary: string;
+  description: string;
   category: string;
-  createdAt: Date;
-  updatedAt: Date;
+  createdAt: string;
+  updatedAt: string;
 }

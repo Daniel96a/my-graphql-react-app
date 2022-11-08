@@ -7,7 +7,6 @@ interface IRouterLink extends LinkProps, NavLinkProps {}
 
 const RRDLink = ({ ...props }: LinkProps) => <Link {...props} />;
 
-// eslint-disable-next-line react/display-name
 export const RouterLink = forwardRef<HTMLAnchorElement, IRouterLink>(
   ({ children, ...props }, ref) => (
     <UINavLink as={RRDLink} {...props} ref={ref}>
@@ -16,4 +15,4 @@ export const RouterLink = forwardRef<HTMLAnchorElement, IRouterLink>(
   ),
 );
 
-export default RouterLink;
+RouterLink.displayName = "RouterLink";

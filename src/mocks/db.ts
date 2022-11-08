@@ -1,8 +1,6 @@
 import { factory, primaryKey } from "@mswjs/data";
 
-import populateCompanies from "./db/companies";
 import populateUsers from "./db/users";
-import populateUsersCompanies from "./db/usersCompanies";
 
 export const db = factory({
   user: {
@@ -22,5 +20,3 @@ export const db = factory({
 });
 
 populateUsers();
-populateCompanies();
-populateUsersCompanies();

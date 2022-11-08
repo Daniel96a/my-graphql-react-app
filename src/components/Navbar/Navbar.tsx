@@ -6,10 +6,10 @@ import {
   useLocation,
   useNavigate,
 } from "react-router-dom";
-import { Grid, NavLink } from "theme-ui";
+import { BoxProps, Grid, NavLink } from "theme-ui";
 
 const TabItem: React.FunctionComponent<
-  { to: To; isActive?: boolean } & Pick<NavigateOptions, "state">
+  { to: To; isActive?: boolean } & Pick<NavigateOptions, "state"> & BoxProps
 > = ({ to, state, isActive = false, children }) => {
   const navigate = useNavigate();
   return (
@@ -32,17 +32,15 @@ const TabItem: React.FunctionComponent<
   );
 };
 
-const Navbar = (): JSX.Element => {
+export const Navbar = (): JSX.Element => {
   const location = useLocation();
 
   const mainPath = useMemo(() => {
     switch (true) {
-      case /employees/g.test(location.pathname):
-        return "EMPLOYEES";
       case /about/g.test(location.pathname):
         return "ABOUT";
       default:
-        return "OVERVIEW";
+        return "TODOS";
     }
   }, [location.pathname]);
 
@@ -51,12 +49,14 @@ const Navbar = (): JSX.Element => {
       as={"nav"}
       paddingX={1}
       sx={{
-        gridTemplateColumns: "1fr 1fr 1fr",
+        gridTemplateColumns: "1fr 1fr",
         borderTopLeftRadius: [4, 0, 0],
         borderTopRightRadius: [4, 0, 0],
         borderBottomRightRadius: [0, 4, 4],
         borderBottomLeftRadius: [0, 4, 4],
         gap: 0,
+        maxWidth: 1024,
+        marginX: "auto",
         width: "100%",
         boxShadow: [
           "0px 0px 2px 2px rgb(0 0 0 / 20%)",
@@ -65,11 +65,8 @@ const Navbar = (): JSX.Element => {
         position: "relative",
       }}
     >
-      <TabItem to={"/"} isActive={mainPath === "OVERVIEW"}>
-        Overview
-      </TabItem>
-      <TabItem to={"employees"} isActive={mainPath === "EMPLOYEES"}>
-        Employees
+      <TabItem to={"/"} isActive={mainPath === "TODOS"}>
+        Todos
       </TabItem>
       <TabItem to={"about"} isActive={mainPath === "ABOUT"}>
         About
@@ -77,5 +74,3 @@ const Navbar = (): JSX.Element => {
     </Grid>
   );
 };
-
-export default Navbar;

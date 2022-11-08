@@ -1,10 +1,10 @@
 import { alpha } from "@theme-ui/color";
 import { Box, Container, Flex, Heading } from "theme-ui";
 
+import { Navbar } from "../../components";
 import { useDeviceContext } from "../../hooks/useDeviceContext";
-import Navbar from "../Navbar";
 
-const SiteHeader = (): JSX.Element => {
+export const SiteHeader = (): JSX.Element => {
   const { isMobile } = useDeviceContext();
 
   return (
@@ -55,4 +55,3 @@ const SiteHeader = (): JSX.Element => {
     </>
   );
 };
-export default SiteHeader;

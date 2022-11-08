@@ -1,15 +1,19 @@
 import { alpha } from "@theme-ui/color";
-import { Box, Container } from "theme-ui";
+import { FC } from "react";
+import { Box, BoxProps, Container } from "theme-ui";
 
-const MainContent: React.FunctionComponent = ({ children }) => {
+interface IMainContent extends BoxProps {}
+
+export const MainContent: FC<IMainContent> = ({ children, ...props }) => {
   return (
     <Box
       as={"main"}
-      style={{
+      css={{
         overflow: "auto",
         position: "relative",
         zIndex: 0,
       }}
+      {...props}
     >
       <Box
         sx={{
@@ -30,4 +34,3 @@ const MainContent: React.FunctionComponent = ({ children }) => {
     </Box>
   );
 };
-export default MainContent;

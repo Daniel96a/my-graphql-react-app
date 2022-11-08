@@ -29,31 +29,4 @@ export const handlers = [
       return res(ctx.data({ users }));
     },
   ),
-  graphql.query<GetUserQuery, GetUserQueryVariables>(
-    "userBySsn",
-    (req, res, ctx) => {
-      const { ssn } = req.variables;
-      const user = db.user.findFirst({
-        where: {
-          ssn: {
-            equals: ssn
-          },
-        },
-      });
-      console.log(user);
-
-      if (user) {
-        return res(
-          ctx.data({
-            userBySsn: user,
-          }),
-        );
-      } else {
-        return res(
-          ctx.errors([{ message: "User has no companies" }]),
-          ctx.status(404),
-        );
-      }
-    },
-  ),
 ];
